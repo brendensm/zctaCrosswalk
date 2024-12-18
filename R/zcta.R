@@ -1,6 +1,6 @@
 # What a horrible world we live in, where code like this is necessary.
 # See https://community.rstudio.com/t/how-to-solve-no-visible-binding-for-global-variable-note/28887
-globalVariables("zcta_crosswalk")
+globalVariables(c("zcta_crosswalk", "ct_cw"))
 
 #' Returns a ZCTA crosswalk as a tibble
 #'
@@ -66,15 +66,32 @@ get_zctas_by_county = function(counties) {
     col = "county_fips"
   } else if (all(counties %in% zcta_crosswalk$county_fips_numeric)) {
     col = "county_fips_numeric"
-  } else {
+  } else if(all(counties %in% ct_cw$pr)){
+    col = "pr"
+  }else{
     stop("User supplied bad data! Type 'get_zctas_by_county' to understand how this function works.")
   }
 
-  message(paste("Using column", col))
-  zcta_crosswalk |>
-    filter(!!sym(col) %in% counties) |>
-    pull(.data$zcta) |>
-    unique()
+  if(col == "pr"){
+
+    message(paste("Using column", col, "from ct_cw"))
+    ct_cw |>
+      filter(!!sym(col) %in% counties) |>
+      pull(.data$zcta) |>
+      unique()
+
+
+  }else{
+
+    message(paste("Using column", col))
+    zcta_crosswalk |>
+      filter(!!sym(col) %in% counties) |>
+      pull(.data$zcta) |>
+      unique()
+
+  }
+
+
 }
 
 #' Return the ZCTAs in a vector of states
