@@ -66,13 +66,19 @@ get_zctas_by_county = function(counties) {
     col = "county_fips"
   } else if (all(counties %in% zcta_crosswalk$county_fips_numeric)) {
     col = "county_fips_numeric"
-  } else if(all(counties %in% ct_cw$pr)){
-    col = "pr"
+  } else if(all(counties %in% ct_cw$pr) | all(counties %in% ct_cw$pr_numeric)){
+
+    if(is.numeric(counties)){
+      col = "pr_numeric"
+    }else{
+      col = "pr"
+    }
+
   }else{
     stop("User supplied bad data! Type 'get_zctas_by_county' to understand how this function works.")
   }
 
-  if(col == "pr"){
+  if(col == "pr" | col == "pr_numeric"){
 
     message(paste("Using column", col, "from ct_cw"))
     ct_cw |>

@@ -22,7 +22,3 @@ ct_cw <- zcta_county_intersection |>
 
 usethis::use_data( ct_cw, internal = FALSE,
                    compress = "xz", overwrite = TRUE)
-
-
-
-
