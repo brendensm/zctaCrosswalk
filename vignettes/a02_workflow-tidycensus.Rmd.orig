@@ -7,10 +7,14 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
-
-
-``` r
+```{r setup, warning = FALSE, message = FALSE}
 library(zctaCrosswalk)
 library(tidycensus)
 library(dplyr)
@@ -21,24 +25,13 @@ library(dplyr)
 Here is an example of using it to get Median Household Income on
 all ZCTAs in the US:
 
-
-``` r
+```{r}
 zcta_income = get_acs(
   geography = "zcta",
   variables = "B19013_001",
   year      = 2021)
-#> Getting data from the 2017-2021 5-year ACS
 
 head(zcta_income)
-#> # A tibble: 6 × 5
-#>   GEOID NAME        variable   estimate   moe
-#>   <chr> <chr>       <chr>         <dbl> <dbl>
-#> 1 00601 ZCTA5 00601 B19013_001    15292  1299
-#> 2 00602 ZCTA5 00602 B19013_001    18716  1340
-#> 3 00603 ZCTA5 00603 B19013_001    16789   966
-#> 4 00606 ZCTA5 00606 B19013_001    18835  2837
-#> 5 00610 ZCTA5 00610 B19013_001    21239  1919
-#> 6 00611 ZCTA5 00611 B19013_001    17143 10456
 ```
 
 Note that `?get_acs` returns data for all ZCTAs in the US. It does 
@@ -52,27 +45,14 @@ can combine this fact with `?dplyr::filter`, `?get_zctas_by_county` and
 
 Here we filter `zcta_income` to ZCTAs in San Francisco County, California:
 
-
-``` r
+```{r}
 nrow(zcta_income) 
-#> [1] 33774
 
 sf_zcta_income = zcta_income |>
   dplyr::filter(GEOID %in% get_zctas_by_county("06075"))
-#> Using column county_fips
 
 nrow(sf_zcta_income)
-#> [1] 30
 head(sf_zcta_income)
-#> # A tibble: 6 × 5
-#>   GEOID NAME        variable   estimate   moe
-#>   <chr> <chr>       <chr>         <dbl> <dbl>
-#> 1 94102 ZCTA5 94102 B19013_001    55888  8518
-#> 2 94103 ZCTA5 94103 B19013_001    93143 19514
-#> 3 94104 ZCTA5 94104 B19013_001    42591 34706
-#> 4 94105 ZCTA5 94105 B19013_001   244662 44963
-#> 5 94107 ZCTA5 94107 B19013_001   164289 16291
-#> 6 94108 ZCTA5 94108 B19013_001    65392  9547
 ```
 
 ## Mapping the Result
@@ -81,8 +61,7 @@ A primary motivation in creating this workflow (and indeed, this package) was
 to create demographic maps at the ZCTA level for selected states and counties.
 If this interests you as well, I encourage you to copy the below code into R and view the output yourself. (Unfortunately, R package vignettes do not seem to handle map output from the `mapview` package well). This is a powerful and elegant pattern for visualizing ZCTA demographics in R:
 
-
-``` r
+```{r eval = FALSE}
 library(zctaCrosswalk)
 library(tidycensus)
 library(dplyr)

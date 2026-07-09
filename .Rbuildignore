@@ -1,0 +1,4 @@
+^vignettes/.*\.orig$
+^vignettes/precompile\.R$
+^.*\.Rproj$
+^\.Rproj\.user$
