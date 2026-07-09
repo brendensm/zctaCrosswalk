@@ -120,9 +120,11 @@ Note that while R has two built-in vectors that deal with state names (`state.ab
 
 ## Updating Connecticut's County Equivalents (Planning Regions)
 
-In late 2024, [an issue](https://github.com/MarketBridge/zctaCrosswalk/issues/14) was opened on this package's GitHub repository that pointed out that this crosswalk does not handle Connecticut's update to their county equivalent planning regions. Connecticut's change to planning regions likely occurred in early 2022. This change included updates to the the International Committee for Information Technology Standards (INCITS) (formerly Federal Information Processing Standard (FIPS) Codes). You can read more about this change [here.](https://www.federalregister.gov/documents/2022/06/06/2022-12063/change-to-county-equivalents-in-the-state-of-connecticut)
+In late 2024, [an issue](https://github.com/MarketBridge/zctaCrosswalk/issues/14) was opened on this package's GitHub repository that pointed out that this crosswalk does not handle Connecticut's update to their county equivalent planning regions. Connecticut's change to planning regions was implemented in January 2022. This change included updates to the International Committee for Information Technology Standards (INCITS) (formerly Federal Information Processing Standard (FIPS) Codes). You can read more about this change [here](https://www.federalregister.gov/documents/2022/06/06/2022-12063/change-to-county-equivalents-in-the-state-of-connecticut).
 
-As a solution to this issue, another data structure was created to bridge these new planning regions to existing ZCTAs. This process is detailed in inst/CT.R. This process was completed in R using the sf package to calculate the ZCTAs that overlap with the legacy counties in Connecticut. 
+As a solution to this issue, another data structure was created to bridge these new planning regions to existing ZCTAs. This process is detailed in inst/CT.R. This process was completed in R using the sf package to calculate the ZCTAs that overlap with the legacy counties in Connecticut.
+
+It is an open question whether this data structure will still be necessary for 2030 Census products. Because the change to planning regions post-dates the 2020 Census, the current ZCTA to County Relationship File does not reflect it. It is not yet clear how the Census Bureau will incorporate Connecticut's planning regions when it releases updated ZCTAs and relationship files following the 2030 Census. Until those files are published, this approach may need to be revisited.
 
 ## Learning About ZCTAs
 

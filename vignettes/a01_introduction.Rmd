@@ -104,6 +104,25 @@ head(
 )
 ```
 
+In 2022 Connecticut replaced its counties with nine planning regions as
+county-equivalents. Because this change post-dates the "2020 ZCTA to County
+Relationship File", those planning regions are not in the main crosswalk. To
+bridge the gap, `?get_zctas_by_county` also accepts Connecticut's planning-region
+FIPS codes (which begin with `091`) and looks them up in the `?ct_cw` data
+structure. As with counties, these codes can be either character or numeric.
+
+```{r}
+# "09110" is the Capitol Planning Region
+head(
+  get_zctas_by_county("09110")
+)
+
+# 9110 (== as.numeric("09110")) works too
+head(
+  get_zctas_by_county(9110)
+)
+```
+
 ## ?get_zcta_metadata
 
 `?get_zcta_metadata` takes a vector of ZCTAs and returns all available metadata on them.

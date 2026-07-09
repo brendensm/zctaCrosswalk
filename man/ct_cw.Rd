@@ -17,6 +17,9 @@ a planning region's border is included in that planning region's associated ZCTA
 \details{
 The addition of this data structure attempts to resolve issues in the Census Bureau's
 ZCTA relationship files that came about due to the State of Connecticut's change
-to county-equivalents (planning regions). This change occurred in early 2022 and
-is further documented \href{https://www.federalregister.gov/documents/2022/06/06/2022-12063/change-to-county-equivalents-in-the-state-of-connecticut}{here.}
+to county-equivalents (planning regions). This change was implemented in January 2022 and
+is further documented by the Census Bureau's
+\href{https://www.census.gov/programs-surveys/geography/technical-documentation/county-changes.2020.html#list-tab-957819518}{county changes page}
+and the corresponding
+\href{https://www.federalregister.gov/documents/2022/06/06/2022-12063/change-to-county-equivalents-in-the-state-of-connecticut}{Federal Register notice.}
 }
