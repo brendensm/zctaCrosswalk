@@ -18,7 +18,8 @@ ct_cw <- zcta_county_intersection |>
  mutate(
     zcta_numeric = as.numeric(zcta),
     pr_numeric = as.numeric(pr)
-  )
+  ) |>
+  tibble::tibble()
 
 usethis::use_data( ct_cw, internal = FALSE,
                    compress = "xz", overwrite = TRUE)

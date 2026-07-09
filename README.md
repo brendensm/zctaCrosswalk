@@ -11,6 +11,10 @@ also provides [Relationship Files](https://www.census.gov/geographies/reference-
 
 This package provides the Census Bureau's "2020 ZCTA to County Relationship File" as a tibble, combines it with useful publicly available metadata (such as State names) and provides convenience functions for querying it.
 
+This package also contains a data structure to relate Connecticut's county-equivalent planning regions to ZCTAs. In 2022, 
+Connecticut changed their counties to planning regions. You can read more detail about this change (here.)[https://www.federalregister.gov/documents/2022/06/06/2022-12063/change-to-county-equivalents-in-the-state-of-connecticut]
+This change was made after the Census Bureau's ZCTA to County relationship file was released. This data structure relates the county-equivalents to the ZCTA crosswalk.
+
 # Installation
 
 You can install the latest stable version of this package from CRAN by typing the following:

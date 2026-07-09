@@ -89,7 +89,7 @@ get_zctas_by_county = function(counties) {
 
   }else{
 
-    message(paste("Using column", col))
+    message(paste("Using column", col, "from zcta_crosswalk"))
     zcta_crosswalk |>
       filter(!!sym(col) %in% counties) |>
       pull(.data$zcta) |>

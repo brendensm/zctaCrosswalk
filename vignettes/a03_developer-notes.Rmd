@@ -118,6 +118,11 @@ The code I used to generate `state_names` is in `inst/gen_state_states.R`.
 
 Note that while R has two built-in vectors that deal with state names (`state.abb` and `state.name`), they cannot help us here because: (1) they do not contain FIPS codes and (2) they only contain 50 states.
 
+## Updating Connecticut's County Equivalents (Planning Regions)
+
+In late 2024, [an issue](https://github.com/MarketBridge/zctaCrosswalk/issues/14) was opened on this package's GitHub repository that pointed out that this crosswalk does not handle Connecticut's update to their county equivalent planning regions. Connecticut's change to planning regions likely occurred in early 2022. This change included updates to the the International Committee for Information Technology Standards (INCITS) (formerly Federal Information Processing Standard (FIPS) Codes). You can read more about this change [here.](https://www.federalregister.gov/documents/2022/06/06/2022-12063/change-to-county-equivalents-in-the-state-of-connecticut)
+
+As a solution to this issue, another data structure was created to bridge these new planning regions to existing ZCTAs. This process is detailed in inst/CT.R. This process was completed in R using the sf package to calculate the ZCTAs that overlap with the legacy counties in Connecticut. 
 
 ## Learning About ZCTAs
 

@@ -28,6 +28,11 @@ NULL
 #' Intersections were calculated using the sf package. Any ZCTA that crosses into
 #' a planning region's border is included in that planning region's associated ZCTAs.
 #'
+#' The addition of this data structure attempts to resolve issues in the Census Bureau's
+#' ZCTA relationship files that came about due to the State of Connecticut's change
+#' to county-equivalents (planning regions). This change occurred in early 2022 and
+#' is further documented \href{https://www.federalregister.gov/documents/2022/06/06/2022-12063/change-to-county-equivalents-in-the-state-of-connecticut}{here.}
+#'
 #' @docType data
 #' @name ct_cw
 #' @usage data(ct_cw)
