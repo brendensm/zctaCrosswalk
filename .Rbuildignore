@@ -1,4 +1,5 @@
 ^vignettes/.*\.orig$
 ^vignettes/precompile\.R$
+^cran-comments\.md$
 ^.*\.Rproj$
 ^\.Rproj\.user$
