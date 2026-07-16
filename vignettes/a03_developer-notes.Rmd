@@ -137,4 +137,4 @@ My primary concern with this dataset is that people will assume that it is a cro
 
 ## Funding
 
-I would like to thank my employer, [MarketBridge](https://market-bridge.com/), for supporting the development of this package. This package would not have been developed without their support.
+I would like to thank my employer, [MarketBridge](https://marketbridge.com/?utm_source=redirect), for supporting the development of this package. This package would not have been developed without their support.
